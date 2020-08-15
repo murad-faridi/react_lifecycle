@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter, Route, Link, NavLink } from 'react-router-dom'
+import { BrowserRouter, Route, NavLink } from 'react-router-dom'
 
 // COMPONENTS
 import Home from './components/home'
@@ -26,6 +26,7 @@ const App = () => {
                     }}>Profiles</NavLink><br />
                     <hr />
                 </header>
+                <Route render={() => <h3>Oops 404</h3>} />
                 <Route path="/" exact component={Home} />
                 <Route path="/posts" component={Posts} />
                 <Route path="/posts/:id" component={PostItem} />
