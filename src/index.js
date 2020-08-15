@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Link, NavLink } from 'react-router-dom'
 
 // COMPONENTS
 import Home from './components/home'
@@ -13,13 +13,17 @@ const App = () => {
         <BrowserRouter>
             <div>
                 <header>
-                    <Link to="/">Home</Link><br />
-                    <Link to="/posts">Posts</Link><br />
-                    <Link to={{
+                    <NavLink to="/">Home</NavLink><br />
+                    <NavLink 
+                        to="/posts"
+                        activeStyle={{color:'red'}}
+                        activeClassName="selected"
+                    >Posts</NavLink><br />
+                    <NavLink to={{
                         pathname:'profiles',
                         hash:'#murad',
                         search:'?profile=true'
-                    }}>Profiles</Link><br />
+                    }}>Profiles</NavLink><br />
                     <hr />
                 </header>
                 <Route path="/" exact component={Home} />
