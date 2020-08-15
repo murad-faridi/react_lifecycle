@@ -10,6 +10,9 @@ class Lifecycle extends Component {
     }
 
     // 3- before render
+    UNSAFE_componentWillMount() {
+        console.log('3- before render')
+    }
 
     // 4- render jsx
     render() {
@@ -21,6 +24,9 @@ class Lifecycle extends Component {
     }
 
     // 5- after render
+    componentDidMount() {
+        console.log('5- after render')
+    }
 }
 
 export default Lifecycle
