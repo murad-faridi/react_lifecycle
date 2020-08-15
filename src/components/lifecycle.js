@@ -19,6 +19,11 @@ class Lifecycle extends Component {
         return(
             <div>
                 <h3>{this.state.title}</h3>
+                <button onClick={
+                    () => this.setState({
+                    title: 'something else'
+                })} 
+                >Click To Change</button>
             </div>
         )
     }
@@ -26,6 +31,32 @@ class Lifecycle extends Component {
     // 5- after render
     componentDidMount() {
         console.log('5- after render')
+    }
+
+    UNSAFE_componentWillUpdate() { // before component is updated
+        console.log('BEFORE UPDATE RENDER')
+    }
+
+    componentDidUpdate() { // after component is updated
+        console.log('AFTER UPDATE RENDER')
+    }
+
+    shouldComponentUpdate(nextProps, nextState) { // check if component should update or not
+        console.log(this.state.title)
+        console.log(nextState.title)
+
+        if (nextState.title === 'something else') {
+            return true;
+        }
+        return false;
+    }
+
+    UNSAFE_componentWillReceiveProps() { // if new props receive within same component after mount
+        console.log('BEFORE RECEIVE PROPS')
+    }
+
+    componentWillUnmount() {
+        console.log('UNMOUNT')
     }
 }
 
